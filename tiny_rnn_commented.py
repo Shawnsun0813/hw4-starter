@@ -34,7 +34,9 @@ text = "\n".join(tiny_lines)
 
 print("Corpus length:", len(text))
 chars = sorted(list(set(text)))
-stoi = {c: i for i, c in enumerate(chars)}
+# String to integer
+stoi = {c: i for i, c in enumerate(chars)}  
+# Integer to string
 itos = {i: c for c, i in stoi.items()}
 vocab_size = len(chars)
 print("Vocab:", chars)
@@ -70,10 +72,10 @@ model.compile(
 history = model.fit(X, y, batch_size=64, epochs=20, verbose=0)
 print("Final loss:", history.history["loss"][-1])
 
-
+###
 # ---------- 5) Sampling helper with temperature ----------
 def sample_logits(logits, temperature=1.0):
-    if temperature <= 0:  # greedy
+    if temperature <= 0:  # greedy decoding
         return int(np.argmax(logits))
     logits = logits / temperature
     probabilities = tf.nn.softmax(logits).numpy()
