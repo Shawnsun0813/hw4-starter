@@ -1,0 +1,29 @@
+The code uses the given sentences to train a LNN model in order to predict the next words with the given prompt "I like".
+
+Tech stack: The model is using TensorFlow/Keras
+
+Mission: predict next characters after the given words
+
+Training data: 
+    "I like cats.",
+    "I like dogs.",
+    "I like noodles."
+
+Requirements:
+- Model will treat texts as separated characters
+- The length of input will be 40 chars
+- The training will use embedding, LSTM128
+- Only train for 20 epochs
+- Support temperature-based sampling
+
+The output:
+- Start with "I like"
+- Be a sentence
+- can be adjusted with different temperatures, and print 5 different version of outputs based on different temperatures
+- Will predict next characters in sequence
+- Will merge the predictions into one sentence
+- Will be less than 40 characters
+
+About temperature:
+- Lower temperatures should produce more predictable output 
+- Higher temperatures should produce more random output
